@@ -21,7 +21,7 @@ import {
 export function registerStatusTools(server: McpServer): void {
   // List Statuses
   server.registerTool(
-    "quire.listStatuses",
+    "quire_listStatuses",
     {
       description:
         "List all custom statuses in a project. Returns an array of status objects " +
@@ -53,7 +53,7 @@ export function registerStatusTools(server: McpServer): void {
 
   // Get Status
   server.registerTool(
-    "quire.getStatus",
+    "quire_getStatus",
     {
       description:
         "Get detailed information about a specific custom status by its value.",
@@ -84,7 +84,7 @@ export function registerStatusTools(server: McpServer): void {
 
   // Create Status
   server.registerTool(
-    "quire.createStatus",
+    "quire_createStatus",
     {
       description:
         "Create a custom status in a project. Custom statuses allow you to " +
@@ -129,7 +129,7 @@ export function registerStatusTools(server: McpServer): void {
 
   // Update Status
   server.registerTool(
-    "quire.updateStatus",
+    "quire_updateStatus",
     {
       description: "Update a custom status's name, value, or color.",
       inputSchema: z.object({
@@ -182,7 +182,7 @@ export function registerStatusTools(server: McpServer): void {
 
   // Delete Status
   server.registerTool(
-    "quire.deleteStatus",
+    "quire_deleteStatus",
     {
       description:
         "Delete a custom status. Tasks with this status will be reverted to " +

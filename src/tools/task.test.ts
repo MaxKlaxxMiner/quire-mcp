@@ -60,19 +60,19 @@ describe("Task Tools", () => {
 
   it("should register all task tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(10);
-    expect(registeredTools.has("quire.listTasks")).toBe(true);
-    expect(registeredTools.has("quire.getTask")).toBe(true);
-    expect(registeredTools.has("quire.createTask")).toBe(true);
-    expect(registeredTools.has("quire.updateTask")).toBe(true);
-    expect(registeredTools.has("quire.deleteTask")).toBe(true);
-    expect(registeredTools.has("quire.searchTasks")).toBe(true);
-    expect(registeredTools.has("quire.createTaskAfter")).toBe(true);
-    expect(registeredTools.has("quire.createTaskBefore")).toBe(true);
-    expect(registeredTools.has("quire.searchFolderTasks")).toBe(true);
-    expect(registeredTools.has("quire.searchOrganizationTasks")).toBe(true);
+    expect(registeredTools.has("quire_listTasks")).toBe(true);
+    expect(registeredTools.has("quire_getTask")).toBe(true);
+    expect(registeredTools.has("quire_createTask")).toBe(true);
+    expect(registeredTools.has("quire_updateTask")).toBe(true);
+    expect(registeredTools.has("quire_deleteTask")).toBe(true);
+    expect(registeredTools.has("quire_searchTasks")).toBe(true);
+    expect(registeredTools.has("quire_createTaskAfter")).toBe(true);
+    expect(registeredTools.has("quire_createTaskBefore")).toBe(true);
+    expect(registeredTools.has("quire_searchFolderTasks")).toBe(true);
+    expect(registeredTools.has("quire_searchOrganizationTasks")).toBe(true);
   });
 
-  describe("quire.listTasks", () => {
+  describe("quire_listTasks", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -80,7 +80,7 @@ describe("Task Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listTasks");
+      const tool = registeredTools.get("quire_listTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -112,7 +112,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listTasks");
+      const tool = registeredTools.get("quire_listTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -144,7 +144,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listTasks");
+      const tool = registeredTools.get("quire_listTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -168,7 +168,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listTasks");
+      const tool = registeredTools.get("quire_listTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -184,14 +184,14 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.getTask", () => {
+  describe("quire_getTask", () => {
     it("should return error on authentication failure", async () => {
       vi.mocked(getQuireClient).mockResolvedValueOnce({
         success: false,
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.getTask");
+      const tool = registeredTools.get("quire_getTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -220,7 +220,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getTask");
+      const tool = registeredTools.get("quire_getTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -250,7 +250,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getTask");
+      const tool = registeredTools.get("quire_getTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -273,7 +273,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getTask");
+      const tool = registeredTools.get("quire_getTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -300,7 +300,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getTask");
+      const tool = registeredTools.get("quire_getTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -317,14 +317,14 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.createTask", () => {
+  describe("quire_createTask", () => {
     it("should return error on authentication failure", async () => {
       vi.mocked(getQuireClient).mockResolvedValueOnce({
         success: false,
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.createTask");
+      const tool = registeredTools.get("quire_createTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -353,7 +353,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTask");
+      const tool = registeredTools.get("quire_createTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -383,7 +383,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTask");
+      const tool = registeredTools.get("quire_createTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -423,7 +423,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTask");
+      const tool = registeredTools.get("quire_createTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -439,14 +439,14 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.updateTask", () => {
+  describe("quire_updateTask", () => {
     it("should return error on authentication failure", async () => {
       vi.mocked(getQuireClient).mockResolvedValueOnce({
         success: false,
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.updateTask");
+      const tool = registeredTools.get("quire_updateTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -471,7 +471,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateTask");
+      const tool = registeredTools.get("quire_updateTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -499,7 +499,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateTask");
+      const tool = registeredTools.get("quire_updateTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -525,7 +525,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateTask");
+      const tool = registeredTools.get("quire_updateTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -551,7 +551,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateTask");
+      const tool = registeredTools.get("quire_updateTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -597,7 +597,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateTask");
+      const tool = registeredTools.get("quire_updateTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -615,14 +615,14 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.deleteTask", () => {
+  describe("quire_deleteTask", () => {
     it("should return error on authentication failure", async () => {
       vi.mocked(getQuireClient).mockResolvedValueOnce({
         success: false,
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.deleteTask");
+      const tool = registeredTools.get("quire_deleteTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -650,7 +650,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteTask");
+      const tool = registeredTools.get("quire_deleteTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -676,7 +676,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteTask");
+      const tool = registeredTools.get("quire_deleteTask");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -692,7 +692,7 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.searchTasks", () => {
+  describe("quire_searchTasks", () => {
     it("should search tasks with keyword only", async () => {
       const mockClient = createMockClient({
         searchTasks: vi.fn().mockResolvedValueOnce({
@@ -706,7 +706,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchTasks");
+      const tool = registeredTools.get("quire_searchTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -738,7 +738,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchTasks");
+      const tool = registeredTools.get("quire_searchTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -771,7 +771,7 @@ describe("Task Tools", () => {
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.searchTasks");
+      const tool = registeredTools.get("quire_searchTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -796,7 +796,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchTasks");
+      const tool = registeredTools.get("quire_searchTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -812,7 +812,7 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.createTaskAfter", () => {
+  describe("quire_createTaskAfter", () => {
     it("should create task after specified task", async () => {
       const mockClient = createMockClient({
         createTaskAfter: vi.fn().mockResolvedValueOnce({
@@ -826,7 +826,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTaskAfter");
+      const tool = registeredTools.get("quire_createTaskAfter");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -857,7 +857,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTaskAfter");
+      const tool = registeredTools.get("quire_createTaskAfter");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -893,7 +893,7 @@ describe("Task Tools", () => {
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.createTaskAfter");
+      const tool = registeredTools.get("quire_createTaskAfter");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -918,7 +918,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTaskAfter");
+      const tool = registeredTools.get("quire_createTaskAfter");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -934,7 +934,7 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.createTaskBefore", () => {
+  describe("quire_createTaskBefore", () => {
     it("should create task before specified task", async () => {
       const mockClient = createMockClient({
         createTaskBefore: vi.fn().mockResolvedValueOnce({
@@ -948,7 +948,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTaskBefore");
+      const tool = registeredTools.get("quire_createTaskBefore");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -972,7 +972,7 @@ describe("Task Tools", () => {
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.createTaskBefore");
+      const tool = registeredTools.get("quire_createTaskBefore");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -997,7 +997,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createTaskBefore");
+      const tool = registeredTools.get("quire_createTaskBefore");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -1013,7 +1013,7 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.searchFolderTasks", () => {
+  describe("quire_searchFolderTasks", () => {
     it("should search tasks in folder", async () => {
       const mockClient = createMockClient({
         searchFolderTasks: vi.fn().mockResolvedValueOnce({
@@ -1027,7 +1027,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchFolderTasks");
+      const tool = registeredTools.get("quire_searchFolderTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -1055,7 +1055,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchFolderTasks");
+      const tool = registeredTools.get("quire_searchFolderTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -1088,7 +1088,7 @@ describe("Task Tools", () => {
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.searchFolderTasks");
+      const tool = registeredTools.get("quire_searchFolderTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -1113,7 +1113,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchFolderTasks");
+      const tool = registeredTools.get("quire_searchFolderTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -1129,7 +1129,7 @@ describe("Task Tools", () => {
     });
   });
 
-  describe("quire.searchOrganizationTasks", () => {
+  describe("quire_searchOrganizationTasks", () => {
     it("should search tasks in organization", async () => {
       const mockClient = createMockClient({
         searchOrganizationTasks: vi.fn().mockResolvedValueOnce({
@@ -1143,7 +1143,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchOrganizationTasks");
+      const tool = registeredTools.get("quire_searchOrganizationTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -1171,7 +1171,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchOrganizationTasks");
+      const tool = registeredTools.get("quire_searchOrganizationTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -1204,7 +1204,7 @@ describe("Task Tools", () => {
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.searchOrganizationTasks");
+      const tool = registeredTools.get("quire_searchOrganizationTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -1231,7 +1231,7 @@ describe("Task Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.searchOrganizationTasks");
+      const tool = registeredTools.get("quire_searchOrganizationTasks");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

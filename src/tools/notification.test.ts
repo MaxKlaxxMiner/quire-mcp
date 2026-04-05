@@ -60,10 +60,10 @@ describe("Notification Tools", () => {
 
   it("should register notification tool", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(1);
-    expect(registeredTools.has("quire.sendNotification")).toBe(true);
+    expect(registeredTools.has("quire_sendNotification")).toBe(true);
   });
 
-  describe("quire.sendNotification", () => {
+  describe("quire_sendNotification", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -71,7 +71,7 @@ describe("Notification Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra()
@@ -97,7 +97,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra({ quireToken: "token" })
@@ -126,7 +126,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       await tool.handler(
         {
           message: "Check this out!",
@@ -151,7 +151,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra({ quireToken: "token" })
@@ -176,7 +176,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra({ quireToken: "token" })
@@ -201,7 +201,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra({ quireToken: "token" })
@@ -225,7 +225,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra({ quireToken: "token" })
@@ -251,7 +251,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra({ quireToken: "token" })
@@ -277,7 +277,7 @@ describe("Notification Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.sendNotification")!;
+      const tool = registeredTools.get("quire_sendNotification")!;
       const result = (await tool.handler(
         { message: "Hello!" },
         createMockExtra({ quireToken: "token" })

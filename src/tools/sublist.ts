@@ -22,7 +22,7 @@ import {
 export function registerSublistTools(server: McpServer): void {
   // Create Sublist
   server.registerTool(
-    "quire.createSublist",
+    "quire_createSublist",
     {
       description:
         "Create a new sublist in an organization, project, folder, or smart-folder.",
@@ -121,7 +121,7 @@ export function registerSublistTools(server: McpServer): void {
 
   // Get Sublist
   server.registerTool(
-    "quire.getSublist",
+    "quire_getSublist",
     {
       description: "Get a sublist by OID, or by owner type/ID and sublist ID.",
       inputSchema: z.object({
@@ -180,7 +180,7 @@ export function registerSublistTools(server: McpServer): void {
 
   // List Sublists
   server.registerTool(
-    "quire.listSublists",
+    "quire_listSublists",
     {
       description:
         "List all sublists in an organization, project, folder, or smart-folder.",
@@ -218,7 +218,7 @@ export function registerSublistTools(server: McpServer): void {
 
   // Update Sublist
   server.registerTool(
-    "quire.updateSublist",
+    "quire_updateSublist",
     {
       description:
         "Update a sublist's properties by OID, or by owner type/ID and sublist ID.",
@@ -353,7 +353,7 @@ export function registerSublistTools(server: McpServer): void {
 
   // Delete Sublist
   server.registerTool(
-    "quire.deleteSublist",
+    "quire_deleteSublist",
     {
       description:
         "Delete a sublist by OID, or by owner type/ID and sublist ID. This action cannot be undone.",

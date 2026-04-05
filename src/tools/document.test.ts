@@ -60,14 +60,14 @@ describe("Document Tools", () => {
 
   it("should register all document tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(5);
-    expect(registeredTools.has("quire.createDocument")).toBe(true);
-    expect(registeredTools.has("quire.getDocument")).toBe(true);
-    expect(registeredTools.has("quire.listDocuments")).toBe(true);
-    expect(registeredTools.has("quire.updateDocument")).toBe(true);
-    expect(registeredTools.has("quire.deleteDocument")).toBe(true);
+    expect(registeredTools.has("quire_createDocument")).toBe(true);
+    expect(registeredTools.has("quire_getDocument")).toBe(true);
+    expect(registeredTools.has("quire_listDocuments")).toBe(true);
+    expect(registeredTools.has("quire_updateDocument")).toBe(true);
+    expect(registeredTools.has("quire_deleteDocument")).toBe(true);
   });
 
-  describe("quire.createDocument", () => {
+  describe("quire_createDocument", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -75,7 +75,7 @@ describe("Document Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.createDocument");
+      const tool = registeredTools.get("quire_createDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -104,7 +104,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createDocument");
+      const tool = registeredTools.get("quire_createDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -141,7 +141,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createDocument");
+      const tool = registeredTools.get("quire_createDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -157,7 +157,7 @@ describe("Document Tools", () => {
     });
   });
 
-  describe("quire.getDocument", () => {
+  describe("quire_getDocument", () => {
     it("should get document by OID", async () => {
       const mockDoc = { oid: "DocOid", id: "readme", name: "README" };
       const mockClient = createMockClient({
@@ -172,7 +172,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getDocument");
+      const tool = registeredTools.get("quire_getDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -200,7 +200,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getDocument");
+      const tool = registeredTools.get("quire_getDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -223,7 +223,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getDocument");
+      const tool = registeredTools.get("quire_getDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -238,7 +238,7 @@ describe("Document Tools", () => {
     });
   });
 
-  describe("quire.listDocuments", () => {
+  describe("quire_listDocuments", () => {
     it("should list documents for project", async () => {
       const mockDocs = [
         { oid: "doc1", id: "readme", name: "README" },
@@ -256,7 +256,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listDocuments");
+      const tool = registeredTools.get("quire_listDocuments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -288,7 +288,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listDocuments");
+      const tool = registeredTools.get("quire_listDocuments");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -303,7 +303,7 @@ describe("Document Tools", () => {
     });
   });
 
-  describe("quire.updateDocument", () => {
+  describe("quire_updateDocument", () => {
     it("should update document by OID", async () => {
       const mockClient = createMockClient({
         updateDocument: vi.fn().mockResolvedValueOnce({
@@ -317,7 +317,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateDocument");
+      const tool = registeredTools.get("quire_updateDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -344,7 +344,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateDocument");
+      const tool = registeredTools.get("quire_updateDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -373,7 +373,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateDocument");
+      const tool = registeredTools.get("quire_updateDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -388,7 +388,7 @@ describe("Document Tools", () => {
     });
   });
 
-  describe("quire.deleteDocument", () => {
+  describe("quire_deleteDocument", () => {
     it("should delete document by OID", async () => {
       const mockClient = createMockClient({
         deleteDocument: vi.fn().mockResolvedValueOnce({
@@ -402,7 +402,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteDocument");
+      const tool = registeredTools.get("quire_deleteDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -431,7 +431,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteDocument");
+      const tool = registeredTools.get("quire_deleteDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -454,7 +454,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteDocument");
+      const tool = registeredTools.get("quire_deleteDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -477,7 +477,7 @@ describe("Document Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.getDocument");
+      const tool = registeredTools.get("quire_getDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -496,7 +496,7 @@ describe("Document Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listDocuments");
+      const tool = registeredTools.get("quire_listDocuments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -515,7 +515,7 @@ describe("Document Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.updateDocument");
+      const tool = registeredTools.get("quire_updateDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -534,7 +534,7 @@ describe("Document Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.deleteDocument");
+      const tool = registeredTools.get("quire_deleteDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -558,7 +558,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createDocument");
+      const tool = registeredTools.get("quire_createDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -579,7 +579,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getDocument");
+      const tool = registeredTools.get("quire_getDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -600,7 +600,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listDocuments");
+      const tool = registeredTools.get("quire_listDocuments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -621,7 +621,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateDocument");
+      const tool = registeredTools.get("quire_updateDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -642,7 +642,7 @@ describe("Document Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteDocument");
+      const tool = registeredTools.get("quire_deleteDocument");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

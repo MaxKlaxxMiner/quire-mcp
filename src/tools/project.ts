@@ -21,7 +21,7 @@ import {
 export function registerProjectTools(server: McpServer): void {
   // List Projects
   server.registerTool(
-    "quire.listProjects",
+    "quire_listProjects",
     {
       description:
         "List all projects accessible to the current user. " +
@@ -73,7 +73,7 @@ export function registerProjectTools(server: McpServer): void {
 
   // Get Project
   server.registerTool(
-    "quire.getProject",
+    "quire_getProject",
     {
       description:
         "Get detailed information about a specific project by its ID or OID. " +
@@ -106,7 +106,7 @@ export function registerProjectTools(server: McpServer): void {
 
   // Update Project
   server.registerTool(
-    "quire.updateProject",
+    "quire_updateProject",
     {
       description:
         "Update a project's settings including name, description, and followers.",
@@ -179,7 +179,7 @@ export function registerProjectTools(server: McpServer): void {
 
   // Export Project
   server.registerTool(
-    "quire.exportProject",
+    "quire_exportProject",
     {
       description:
         "Export all tasks from a project in JSON or CSV format. " +

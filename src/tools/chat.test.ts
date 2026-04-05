@@ -60,14 +60,14 @@ describe("Chat Tools", () => {
 
   it("should register all chat tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(5);
-    expect(registeredTools.has("quire.createChat")).toBe(true);
-    expect(registeredTools.has("quire.getChat")).toBe(true);
-    expect(registeredTools.has("quire.listChats")).toBe(true);
-    expect(registeredTools.has("quire.updateChat")).toBe(true);
-    expect(registeredTools.has("quire.deleteChat")).toBe(true);
+    expect(registeredTools.has("quire_createChat")).toBe(true);
+    expect(registeredTools.has("quire_getChat")).toBe(true);
+    expect(registeredTools.has("quire_listChats")).toBe(true);
+    expect(registeredTools.has("quire_updateChat")).toBe(true);
+    expect(registeredTools.has("quire_deleteChat")).toBe(true);
   });
 
-  describe("quire.createChat", () => {
+  describe("quire_createChat", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -75,7 +75,7 @@ describe("Chat Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.createChat");
+      const tool = registeredTools.get("quire_createChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -104,7 +104,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createChat");
+      const tool = registeredTools.get("quire_createChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -136,7 +136,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createChat");
+      const tool = registeredTools.get("quire_createChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -157,14 +157,14 @@ describe("Chat Tools", () => {
     });
   });
 
-  describe("quire.getChat", () => {
+  describe("quire_getChat", () => {
     it("should return error on authentication failure", async () => {
       vi.mocked(getQuireClient).mockResolvedValueOnce({
         success: false,
         error: "No token",
       });
 
-      const tool = registeredTools.get("quire.getChat");
+      const tool = registeredTools.get("quire_getChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -193,7 +193,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getChat");
+      const tool = registeredTools.get("quire_getChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -221,7 +221,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getChat");
+      const tool = registeredTools.get("quire_getChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -244,7 +244,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getChat");
+      const tool = registeredTools.get("quire_getChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -259,7 +259,7 @@ describe("Chat Tools", () => {
     });
   });
 
-  describe("quire.listChats", () => {
+  describe("quire_listChats", () => {
     it("should list chats for project", async () => {
       const mockChats = [
         { oid: "chat1", id: "general", name: "General" },
@@ -277,7 +277,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listChats");
+      const tool = registeredTools.get("quire_listChats");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -309,7 +309,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listChats");
+      const tool = registeredTools.get("quire_listChats");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -324,7 +324,7 @@ describe("Chat Tools", () => {
     });
   });
 
-  describe("quire.updateChat", () => {
+  describe("quire_updateChat", () => {
     it("should update chat by OID", async () => {
       const mockClient = createMockClient({
         updateChat: vi.fn().mockResolvedValueOnce({
@@ -338,7 +338,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -364,7 +364,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -394,7 +394,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -409,7 +409,7 @@ describe("Chat Tools", () => {
     });
   });
 
-  describe("quire.deleteChat", () => {
+  describe("quire_deleteChat", () => {
     it("should delete chat by OID", async () => {
       const mockClient = createMockClient({
         deleteChat: vi.fn().mockResolvedValueOnce({
@@ -423,7 +423,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteChat");
+      const tool = registeredTools.get("quire_deleteChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -452,7 +452,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteChat");
+      const tool = registeredTools.get("quire_deleteChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -475,7 +475,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteChat");
+      const tool = registeredTools.get("quire_deleteChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -496,7 +496,7 @@ describe("Chat Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.deleteChat");
+      const tool = registeredTools.get("quire_deleteChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -521,7 +521,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteChat");
+      const tool = registeredTools.get("quire_deleteChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -547,7 +547,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createChat");
+      const tool = registeredTools.get("quire_createChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -571,7 +571,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getChat");
+      const tool = registeredTools.get("quire_getChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -595,7 +595,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listChats");
+      const tool = registeredTools.get("quire_listChats");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -616,7 +616,7 @@ describe("Chat Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listChats");
+      const tool = registeredTools.get("quire_listChats");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -641,7 +641,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -662,7 +662,7 @@ describe("Chat Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -692,7 +692,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createChat");
+      const tool = registeredTools.get("quire_createChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -726,7 +726,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -752,7 +752,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -778,7 +778,7 @@ describe("Chat Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateChat");
+      const tool = registeredTools.get("quire_updateChat");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(

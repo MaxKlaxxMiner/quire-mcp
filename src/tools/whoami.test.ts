@@ -17,7 +17,7 @@ vi.mock("../quire/client-factory.js", () => ({
 
 import { getQuireClient } from "../quire/client-factory.js";
 
-describe("quire.whoami tool", () => {
+describe("quire_whoami tool", () => {
   let server: McpServer;
   let registeredTools: Map<
     string,
@@ -63,7 +63,7 @@ describe("quire.whoami tool", () => {
 
   it("should register the quire.whoami tool", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(1);
-    expect(registeredTools.has("quire.whoami")).toBe(true);
+    expect(registeredTools.has("quire_whoami")).toBe(true);
   });
 
   describe("authentication failure", () => {
@@ -74,7 +74,7 @@ describe("quire.whoami tool", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.whoami");
+      const tool = registeredTools.get("quire_whoami");
       expect(tool).toBeDefined();
       if (!tool) return;
       const extra = createMockExtra();
@@ -110,7 +110,7 @@ describe("quire.whoami tool", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.whoami");
+      const tool = registeredTools.get("quire_whoami");
       expect(tool).toBeDefined();
       if (!tool) return;
       const extra = createMockExtra({ quireToken: "valid-token" });
@@ -138,7 +138,7 @@ describe("quire.whoami tool", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.whoami");
+      const tool = registeredTools.get("quire_whoami");
       expect(tool).toBeDefined();
       if (!tool) return;
       const extra = createMockExtra({ quireToken: "invalid-token" });
@@ -163,7 +163,7 @@ describe("quire.whoami tool", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.whoami");
+      const tool = registeredTools.get("quire_whoami");
       expect(tool).toBeDefined();
       if (!tool) return;
       const extra = createMockExtra({ quireToken: "valid-token" });
@@ -188,7 +188,7 @@ describe("quire.whoami tool", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.whoami");
+      const tool = registeredTools.get("quire_whoami");
       expect(tool).toBeDefined();
       if (!tool) return;
       const extra = createMockExtra({ quireToken: "valid-token" });

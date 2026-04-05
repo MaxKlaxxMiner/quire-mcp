@@ -16,7 +16,7 @@ import { formatError, formatAuthError, formatSuccess } from "./utils.js";
  */
 export function registerWhoamiTool(server: McpServer): void {
   server.registerTool(
-    "quire.whoami",
+    "quire_whoami",
     {
       description:
         "Get the current authenticated user's profile from Quire. " +

@@ -60,11 +60,11 @@ describe("Partner Tools", () => {
 
   it("should register all partner tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(2);
-    expect(registeredTools.has("quire.getPartner")).toBe(true);
-    expect(registeredTools.has("quire.listPartners")).toBe(true);
+    expect(registeredTools.has("quire_getPartner")).toBe(true);
+    expect(registeredTools.has("quire_listPartners")).toBe(true);
   });
 
-  describe("quire.getPartner", () => {
+  describe("quire_getPartner", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -72,7 +72,7 @@ describe("Partner Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.getPartner");
+      const tool = registeredTools.get("quire_getPartner");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -105,7 +105,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getPartner");
+      const tool = registeredTools.get("quire_getPartner");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -131,7 +131,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getPartner");
+      const tool = registeredTools.get("quire_getPartner");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -147,7 +147,7 @@ describe("Partner Tools", () => {
     });
   });
 
-  describe("quire.listPartners", () => {
+  describe("quire_listPartners", () => {
     it("should list partners for project", async () => {
       const mockPartners = [
         { oid: "partner1", name: "Team A", nameText: "Team A" },
@@ -165,7 +165,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listPartners");
+      const tool = registeredTools.get("quire_listPartners");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -192,7 +192,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listPartners");
+      const tool = registeredTools.get("quire_listPartners");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -220,7 +220,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listPartners");
+      const tool = registeredTools.get("quire_listPartners");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -242,7 +242,7 @@ describe("Partner Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listPartners");
+      const tool = registeredTools.get("quire_listPartners");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -269,7 +269,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getPartner");
+      const tool = registeredTools.get("quire_getPartner");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -295,7 +295,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getPartner");
+      const tool = registeredTools.get("quire_getPartner");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -321,7 +321,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getPartner");
+      const tool = registeredTools.get("quire_getPartner");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -347,7 +347,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getPartner");
+      const tool = registeredTools.get("quire_getPartner");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -372,7 +372,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listPartners");
+      const tool = registeredTools.get("quire_listPartners");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -397,7 +397,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listPartners");
+      const tool = registeredTools.get("quire_listPartners");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -422,7 +422,7 @@ describe("Partner Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listPartners");
+      const tool = registeredTools.get("quire_listPartners");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

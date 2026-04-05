@@ -60,11 +60,11 @@ describe("Attachment Tools", () => {
 
   it("should register all attachment tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(2);
-    expect(registeredTools.has("quire.uploadTaskAttachment")).toBe(true);
-    expect(registeredTools.has("quire.uploadCommentAttachment")).toBe(true);
+    expect(registeredTools.has("quire_uploadTaskAttachment")).toBe(true);
+    expect(registeredTools.has("quire_uploadCommentAttachment")).toBe(true);
   });
 
-  describe("quire.uploadTaskAttachment", () => {
+  describe("quire_uploadTaskAttachment", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -72,7 +72,7 @@ describe("Attachment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.uploadTaskAttachment");
+      const tool = registeredTools.get("quire_uploadTaskAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -108,7 +108,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadTaskAttachment");
+      const tool = registeredTools.get("quire_uploadTaskAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -149,7 +149,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadTaskAttachment");
+      const tool = registeredTools.get("quire_uploadTaskAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -184,7 +184,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadTaskAttachment");
+      const tool = registeredTools.get("quire_uploadTaskAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -213,7 +213,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadTaskAttachment");
+      const tool = registeredTools.get("quire_uploadTaskAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -242,7 +242,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadTaskAttachment");
+      const tool = registeredTools.get("quire_uploadTaskAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -262,7 +262,7 @@ describe("Attachment Tools", () => {
     });
   });
 
-  describe("quire.uploadCommentAttachment", () => {
+  describe("quire_uploadCommentAttachment", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -270,7 +270,7 @@ describe("Attachment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.uploadCommentAttachment");
+      const tool = registeredTools.get("quire_uploadCommentAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -306,7 +306,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadCommentAttachment");
+      const tool = registeredTools.get("quire_uploadCommentAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -347,7 +347,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadCommentAttachment");
+      const tool = registeredTools.get("quire_uploadCommentAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -382,7 +382,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadCommentAttachment");
+      const tool = registeredTools.get("quire_uploadCommentAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 
@@ -411,7 +411,7 @@ describe("Attachment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.uploadCommentAttachment");
+      const tool = registeredTools.get("quire_uploadCommentAttachment");
       expect(tool).toBeDefined();
       if (!tool) throw new Error("Tool not registered");
 

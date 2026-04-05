@@ -60,14 +60,14 @@ describe("Status Tools", () => {
 
   it("should register all status tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(5);
-    expect(registeredTools.has("quire.listStatuses")).toBe(true);
-    expect(registeredTools.has("quire.getStatus")).toBe(true);
-    expect(registeredTools.has("quire.createStatus")).toBe(true);
-    expect(registeredTools.has("quire.updateStatus")).toBe(true);
-    expect(registeredTools.has("quire.deleteStatus")).toBe(true);
+    expect(registeredTools.has("quire_listStatuses")).toBe(true);
+    expect(registeredTools.has("quire_getStatus")).toBe(true);
+    expect(registeredTools.has("quire_createStatus")).toBe(true);
+    expect(registeredTools.has("quire_updateStatus")).toBe(true);
+    expect(registeredTools.has("quire_deleteStatus")).toBe(true);
   });
 
-  describe("quire.listStatuses", () => {
+  describe("quire_listStatuses", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -75,7 +75,7 @@ describe("Status Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listStatuses");
+      const tool = registeredTools.get("quire_listStatuses");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -108,7 +108,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listStatuses");
+      const tool = registeredTools.get("quire_listStatuses");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -126,7 +126,7 @@ describe("Status Tools", () => {
     });
   });
 
-  describe("quire.getStatus", () => {
+  describe("quire_getStatus", () => {
     it("should get status by project and value", async () => {
       const mockStatus = { value: 50, name: "In Progress", color: 1 };
       const mockClient = createMockClient({
@@ -141,7 +141,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStatus");
+      const tool = registeredTools.get("quire_getStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -167,7 +167,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStatus");
+      const tool = registeredTools.get("quire_getStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -183,7 +183,7 @@ describe("Status Tools", () => {
     });
   });
 
-  describe("quire.createStatus", () => {
+  describe("quire_createStatus", () => {
     it("should create status with required params", async () => {
       const mockStatus = { value: 25, name: "Review" };
       const mockClient = createMockClient({
@@ -198,7 +198,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createStatus");
+      const tool = registeredTools.get("quire_createStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -228,7 +228,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createStatus");
+      const tool = registeredTools.get("quire_createStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -252,7 +252,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createStatus");
+      const tool = registeredTools.get("quire_createStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -267,7 +267,7 @@ describe("Status Tools", () => {
     });
   });
 
-  describe("quire.updateStatus", () => {
+  describe("quire_updateStatus", () => {
     it("should update status", async () => {
       const mockStatus = { value: 50, name: "Working", color: 2 };
       const mockClient = createMockClient({
@@ -282,7 +282,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateStatus");
+      const tool = registeredTools.get("quire_updateStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -301,7 +301,7 @@ describe("Status Tools", () => {
     });
   });
 
-  describe("quire.deleteStatus", () => {
+  describe("quire_deleteStatus", () => {
     it("should delete status", async () => {
       const mockClient = createMockClient({
         deleteStatus: vi.fn().mockResolvedValueOnce({
@@ -315,7 +315,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteStatus");
+      const tool = registeredTools.get("quire_deleteStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -341,7 +341,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteStatus");
+      const tool = registeredTools.get("quire_deleteStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -364,7 +364,7 @@ describe("Status Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.getStatus");
+      const tool = registeredTools.get("quire_getStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -383,7 +383,7 @@ describe("Status Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.createStatus");
+      const tool = registeredTools.get("quire_createStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -402,7 +402,7 @@ describe("Status Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.updateStatus");
+      const tool = registeredTools.get("quire_updateStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -421,7 +421,7 @@ describe("Status Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.deleteStatus");
+      const tool = registeredTools.get("quire_deleteStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -445,7 +445,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listStatuses");
+      const tool = registeredTools.get("quire_listStatuses");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -466,7 +466,7 @@ describe("Status Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateStatus");
+      const tool = registeredTools.get("quire_updateStatus");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

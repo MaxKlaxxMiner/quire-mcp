@@ -60,13 +60,13 @@ describe("Project Tools", () => {
 
   it("should register all project tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(4);
-    expect(registeredTools.has("quire.listProjects")).toBe(true);
-    expect(registeredTools.has("quire.getProject")).toBe(true);
-    expect(registeredTools.has("quire.updateProject")).toBe(true);
-    expect(registeredTools.has("quire.exportProject")).toBe(true);
+    expect(registeredTools.has("quire_listProjects")).toBe(true);
+    expect(registeredTools.has("quire_getProject")).toBe(true);
+    expect(registeredTools.has("quire_updateProject")).toBe(true);
+    expect(registeredTools.has("quire_exportProject")).toBe(true);
   });
 
-  describe("quire.listProjects", () => {
+  describe("quire_listProjects", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -74,7 +74,7 @@ describe("Project Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listProjects");
+      const tool = registeredTools.get("quire_listProjects");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler({}, createMockExtra())) as {
@@ -103,7 +103,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listProjects");
+      const tool = registeredTools.get("quire_listProjects");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -132,7 +132,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listProjects");
+      const tool = registeredTools.get("quire_listProjects");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -153,7 +153,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listProjects");
+      const tool = registeredTools.get("quire_listProjects");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -168,7 +168,7 @@ describe("Project Tools", () => {
     });
   });
 
-  describe("quire.getProject", () => {
+  describe("quire_getProject", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -176,7 +176,7 @@ describe("Project Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.getProject");
+      const tool = registeredTools.get("quire_getProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -210,7 +210,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getProject");
+      const tool = registeredTools.get("quire_getProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -236,7 +236,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getProject");
+      const tool = registeredTools.get("quire_getProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -252,7 +252,7 @@ describe("Project Tools", () => {
     });
   });
 
-  describe("quire.updateProject", () => {
+  describe("quire_updateProject", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -260,7 +260,7 @@ describe("Project Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.updateProject");
+      const tool = registeredTools.get("quire_updateProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -293,7 +293,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateProject");
+      const tool = registeredTools.get("quire_updateProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -324,7 +324,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateProject");
+      const tool = registeredTools.get("quire_updateProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -352,7 +352,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateProject");
+      const tool = registeredTools.get("quire_updateProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -368,7 +368,7 @@ describe("Project Tools", () => {
     });
   });
 
-  describe("quire.exportProject", () => {
+  describe("quire_exportProject", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -376,7 +376,7 @@ describe("Project Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.exportProject");
+      const tool = registeredTools.get("quire_exportProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -408,7 +408,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.exportProject");
+      const tool = registeredTools.get("quire_exportProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -442,7 +442,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.exportProject");
+      const tool = registeredTools.get("quire_exportProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -472,7 +472,7 @@ describe("Project Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.exportProject");
+      const tool = registeredTools.get("quire_exportProject");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -505,7 +505,7 @@ describe("Project Tools", () => {
       extra._meta = { progressToken: "test-progress-token" };
       extra.sendNotification = sendNotificationMock;
 
-      const tool = registeredTools.get("quire.exportProject");
+      const tool = registeredTools.get("quire_exportProject");
       expect(tool).toBeDefined();
       if (!tool) return;
 
@@ -561,7 +561,7 @@ describe("Project Tools", () => {
       extra.sendNotification = sendNotificationMock;
       // No _meta.progressToken set
 
-      const tool = registeredTools.get("quire.exportProject");
+      const tool = registeredTools.get("quire_exportProject");
       expect(tool).toBeDefined();
       if (!tool) return;
 

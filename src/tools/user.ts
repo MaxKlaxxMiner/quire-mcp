@@ -15,7 +15,7 @@ import { formatError, formatAuthError, formatSuccess } from "./utils.js";
 export function registerUserTools(server: McpServer): void {
   // Get User
   server.registerTool(
-    "quire.getUser",
+    "quire_getUser",
     {
       description:
         "Get detailed information about a user by their ID, OID, or email. " +
@@ -48,7 +48,7 @@ export function registerUserTools(server: McpServer): void {
 
   // List Users
   server.registerTool(
-    "quire.listUsers",
+    "quire_listUsers",
     {
       description:
         "List all users accessible to the current user. " +
@@ -75,7 +75,7 @@ export function registerUserTools(server: McpServer): void {
 
   // List Project Members
   server.registerTool(
-    "quire.listProjectMembers",
+    "quire_listProjectMembers",
     {
       description:
         "List all members of a project. " +

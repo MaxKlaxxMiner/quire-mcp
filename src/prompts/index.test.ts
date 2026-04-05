@@ -44,7 +44,7 @@ describe("registerPrompts", () => {
     // Find the create-project-plan registration call
     const createProjectPlanCall = (
       mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-    ).find((call) => call[0] === "quire.create-project-plan");
+    ).find((call) => call[0] === "quire_create-project-plan");
 
     expect(createProjectPlanCall).toBeDefined();
     expect(createProjectPlanCall![1]).toHaveProperty("description");
@@ -62,7 +62,7 @@ describe("registerPrompts", () => {
 
     const dailyStandupCall = (
       mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-    ).find((call) => call[0] === "quire.daily-standup");
+    ).find((call) => call[0] === "quire_daily-standup");
 
     expect(dailyStandupCall).toBeDefined();
     expect(dailyStandupCall![1]).toHaveProperty("description");
@@ -80,7 +80,7 @@ describe("registerPrompts", () => {
 
     const sprintPlanningCall = (
       mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-    ).find((call) => call[0] === "quire.sprint-planning");
+    ).find((call) => call[0] === "quire_sprint-planning");
 
     expect(sprintPlanningCall).toBeDefined();
     expect(sprintPlanningCall![1]).toHaveProperty("description");
@@ -98,7 +98,7 @@ describe("registerPrompts", () => {
 
     const taskBreakdownCall = (
       mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-    ).find((call) => call[0] === "quire.task-breakdown");
+    ).find((call) => call[0] === "quire_task-breakdown");
 
     expect(taskBreakdownCall).toBeDefined();
     expect(taskBreakdownCall![1]).toHaveProperty("description");
@@ -116,7 +116,7 @@ describe("registerPrompts", () => {
 
     const weeklySummaryCall = (
       mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-    ).find((call) => call[0] === "quire.weekly-summary");
+    ).find((call) => call[0] === "quire_weekly-summary");
 
     expect(weeklySummaryCall).toBeDefined();
     expect(weeklySummaryCall![1]).toHaveProperty("description");
@@ -135,7 +135,7 @@ describe("registerPrompts", () => {
 
       const createProjectPlanCall = (
         mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-      ).find((call) => call[0] === "quire.create-project-plan");
+      ).find((call) => call[0] === "quire_create-project-plan");
       const handler = createProjectPlanCall![2];
 
       const result = handler({
@@ -162,7 +162,7 @@ describe("registerPrompts", () => {
 
       const dailyStandupCall = (
         mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-      ).find((call) => call[0] === "quire.daily-standup");
+      ).find((call) => call[0] === "quire_daily-standup");
       const handler = dailyStandupCall![2];
 
       const result = handler({
@@ -191,7 +191,7 @@ describe("registerPrompts", () => {
 
       const dailyStandupCall = (
         mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-      ).find((call) => call[0] === "quire.daily-standup");
+      ).find((call) => call[0] === "quire_daily-standup");
       const handler = dailyStandupCall![2];
 
       const result = handler({
@@ -218,7 +218,7 @@ describe("registerPrompts", () => {
 
       const sprintPlanningCall = (
         mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-      ).find((call) => call[0] === "quire.sprint-planning");
+      ).find((call) => call[0] === "quire_sprint-planning");
       const handler = sprintPlanningCall![2];
 
       const result = handler({
@@ -243,7 +243,7 @@ describe("registerPrompts", () => {
 
       const taskBreakdownCall = (
         mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-      ).find((call) => call[0] === "quire.task-breakdown");
+      ).find((call) => call[0] === "quire_task-breakdown");
       const handler = taskBreakdownCall![2];
 
       const result = handler({
@@ -266,7 +266,7 @@ describe("registerPrompts", () => {
 
       const weeklySummaryCall = (
         mockRegisterPrompt.mock.calls as RegisterPromptCall[]
-      ).find((call) => call[0] === "quire.weekly-summary");
+      ).find((call) => call[0] === "quire_weekly-summary");
       const handler = weeklySummaryCall![2];
 
       const result = handler({

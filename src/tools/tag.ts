@@ -21,7 +21,7 @@ import {
 export function registerTagTools(server: McpServer): void {
   // List Tags
   server.registerTool(
-    "quire.listTags",
+    "quire_listTags",
     {
       description:
         "List all tags in a project. Returns an array of tag objects " +
@@ -52,7 +52,7 @@ export function registerTagTools(server: McpServer): void {
 
   // Get Tag
   server.registerTool(
-    "quire.getTag",
+    "quire_getTag",
     {
       description: "Get detailed information about a specific tag by its OID.",
       inputSchema: z.object({
@@ -79,7 +79,7 @@ export function registerTagTools(server: McpServer): void {
 
   // Create Tag
   server.registerTool(
-    "quire.createTag",
+    "quire_createTag",
     {
       description:
         "Create a new tag in a project. Tags help organize and categorize tasks.",
@@ -126,7 +126,7 @@ export function registerTagTools(server: McpServer): void {
 
   // Update Tag
   server.registerTool(
-    "quire.updateTag",
+    "quire_updateTag",
     {
       description: "Update a tag's name, global status, or color.",
       inputSchema: z.object({
@@ -176,7 +176,7 @@ export function registerTagTools(server: McpServer): void {
 
   // Delete Tag
   server.registerTool(
-    "quire.deleteTag",
+    "quire_deleteTag",
     {
       description:
         "Delete a tag. This will remove the tag from all tasks that have it.",

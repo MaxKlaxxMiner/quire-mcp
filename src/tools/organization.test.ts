@@ -60,12 +60,12 @@ describe("Organization Tools", () => {
 
   it("should register all organization tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(3);
-    expect(registeredTools.has("quire.listOrganizations")).toBe(true);
-    expect(registeredTools.has("quire.getOrganization")).toBe(true);
-    expect(registeredTools.has("quire.updateOrganization")).toBe(true);
+    expect(registeredTools.has("quire_listOrganizations")).toBe(true);
+    expect(registeredTools.has("quire_getOrganization")).toBe(true);
+    expect(registeredTools.has("quire_updateOrganization")).toBe(true);
   });
 
-  describe("quire.listOrganizations", () => {
+  describe("quire_listOrganizations", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -73,7 +73,7 @@ describe("Organization Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listOrganizations");
+      const tool = registeredTools.get("quire_listOrganizations");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler({}, createMockExtra())) as {
@@ -102,7 +102,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listOrganizations");
+      const tool = registeredTools.get("quire_listOrganizations");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -131,7 +131,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listOrganizations");
+      const tool = registeredTools.get("quire_listOrganizations");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -147,7 +147,7 @@ describe("Organization Tools", () => {
     });
   });
 
-  describe("quire.getOrganization", () => {
+  describe("quire_getOrganization", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -155,7 +155,7 @@ describe("Organization Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.getOrganization");
+      const tool = registeredTools.get("quire_getOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -190,7 +190,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getOrganization");
+      const tool = registeredTools.get("quire_getOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -218,7 +218,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getOrganization");
+      const tool = registeredTools.get("quire_getOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -237,7 +237,7 @@ describe("Organization Tools", () => {
     });
   });
 
-  describe("quire.updateOrganization", () => {
+  describe("quire_updateOrganization", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -245,7 +245,7 @@ describe("Organization Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.updateOrganization");
+      const tool = registeredTools.get("quire_updateOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -279,7 +279,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateOrganization");
+      const tool = registeredTools.get("quire_updateOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -309,7 +309,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateOrganization");
+      const tool = registeredTools.get("quire_updateOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -335,7 +335,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateOrganization");
+      const tool = registeredTools.get("quire_updateOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -360,7 +360,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateOrganization");
+      const tool = registeredTools.get("quire_updateOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -387,7 +387,7 @@ describe("Organization Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateOrganization");
+      const tool = registeredTools.get("quire_updateOrganization");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

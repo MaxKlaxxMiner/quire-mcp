@@ -60,13 +60,13 @@ describe("Storage Tools", () => {
 
   it("should register all storage tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(4);
-    expect(registeredTools.has("quire.getStorageValue")).toBe(true);
-    expect(registeredTools.has("quire.listStorageEntries")).toBe(true);
-    expect(registeredTools.has("quire.putStorageValue")).toBe(true);
-    expect(registeredTools.has("quire.deleteStorageValue")).toBe(true);
+    expect(registeredTools.has("quire_getStorageValue")).toBe(true);
+    expect(registeredTools.has("quire_listStorageEntries")).toBe(true);
+    expect(registeredTools.has("quire_putStorageValue")).toBe(true);
+    expect(registeredTools.has("quire_deleteStorageValue")).toBe(true);
   });
 
-  describe("quire.getStorageValue", () => {
+  describe("quire_getStorageValue", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -74,7 +74,7 @@ describe("Storage Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.getStorageValue");
+      const tool = registeredTools.get("quire_getStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -103,7 +103,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStorageValue");
+      const tool = registeredTools.get("quire_getStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -130,7 +130,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStorageValue");
+      const tool = registeredTools.get("quire_getStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -146,7 +146,7 @@ describe("Storage Tools", () => {
     });
   });
 
-  describe("quire.listStorageEntries", () => {
+  describe("quire_listStorageEntries", () => {
     it("should list storage entries by prefix", async () => {
       const mockEntries = [
         { name: "app:setting1", value: "value1" },
@@ -164,7 +164,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listStorageEntries");
+      const tool = registeredTools.get("quire_listStorageEntries");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -194,7 +194,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listStorageEntries");
+      const tool = registeredTools.get("quire_listStorageEntries");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -210,7 +210,7 @@ describe("Storage Tools", () => {
     });
   });
 
-  describe("quire.putStorageValue", () => {
+  describe("quire_putStorageValue", () => {
     it("should store a string value", async () => {
       const mockEntry = { name: "my-key", value: "new-value" };
       const mockClient = createMockClient({
@@ -225,7 +225,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.putStorageValue");
+      const tool = registeredTools.get("quire_putStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -256,7 +256,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.putStorageValue");
+      const tool = registeredTools.get("quire_putStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -283,7 +283,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.putStorageValue");
+      const tool = registeredTools.get("quire_putStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -304,7 +304,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.putStorageValue");
+      const tool = registeredTools.get("quire_putStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -320,7 +320,7 @@ describe("Storage Tools", () => {
     });
   });
 
-  describe("quire.deleteStorageValue", () => {
+  describe("quire_deleteStorageValue", () => {
     it("should delete storage value", async () => {
       const mockClient = createMockClient({
         deleteStorageValue: vi.fn().mockResolvedValueOnce({
@@ -334,7 +334,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteStorageValue");
+      const tool = registeredTools.get("quire_deleteStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -362,7 +362,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteStorageValue");
+      const tool = registeredTools.get("quire_deleteStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -384,7 +384,7 @@ describe("Storage Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.deleteStorageValue");
+      const tool = registeredTools.get("quire_deleteStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -413,7 +413,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStorageValue");
+      const tool = registeredTools.get("quire_getStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -439,7 +439,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStorageValue");
+      const tool = registeredTools.get("quire_getStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -466,7 +466,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStorageValue");
+      const tool = registeredTools.get("quire_getStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -494,7 +494,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getStorageValue");
+      const tool = registeredTools.get("quire_getStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -516,7 +516,7 @@ describe("Storage Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listStorageEntries");
+      const tool = registeredTools.get("quire_listStorageEntries");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -543,7 +543,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listStorageEntries");
+      const tool = registeredTools.get("quire_listStorageEntries");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -564,7 +564,7 @@ describe("Storage Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.putStorageValue");
+      const tool = registeredTools.get("quire_putStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -591,7 +591,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteStorageValue");
+      const tool = registeredTools.get("quire_deleteStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -618,7 +618,7 @@ describe("Storage Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteStorageValue");
+      const tool = registeredTools.get("quire_deleteStorageValue");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

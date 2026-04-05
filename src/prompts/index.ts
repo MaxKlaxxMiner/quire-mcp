@@ -14,7 +14,7 @@ import { z } from "zod";
 export function registerPrompts(server: McpServer): void {
   // Create Project Plan prompt
   server.registerPrompt(
-    "quire.create-project-plan",
+    "quire_create-project-plan",
     {
       description:
         "Generate a task plan from a goal description. " +
@@ -79,7 +79,7 @@ Start by listing existing tasks in the project to understand the current state, 
 
   // Daily Standup prompt
   server.registerPrompt(
-    "quire.daily-standup",
+    "quire_daily-standup",
     {
       description:
         "Generate a daily standup summary. " +
@@ -160,7 +160,7 @@ Start by fetching the project tasks to analyze the current state.`,
 
   // Sprint Planning prompt
   server.registerPrompt(
-    "quire.sprint-planning",
+    "quire_sprint-planning",
     {
       description:
         "Help plan a sprint from the backlog. " +
@@ -251,7 +251,7 @@ Start by fetching all tasks to analyze the backlog.`,
 
   // Task Breakdown prompt
   server.registerPrompt(
-    "quire.task-breakdown",
+    "quire_task-breakdown",
     {
       description:
         "Break down a task into subtasks. " +
@@ -333,7 +333,7 @@ Start by fetching the task details to understand what needs to be broken down.`,
 
   // Weekly Summary prompt
   server.registerPrompt(
-    "quire.weekly-summary",
+    "quire_weekly-summary",
     {
       description:
         "Generate a weekly progress report. " +

@@ -65,7 +65,7 @@ function formatError(error: {
 export function registerNotificationTools(server: McpServer): void {
   // Send Notification
   server.registerTool(
-    "quire.sendNotification",
+    "quire_sendNotification",
     {
       description:
         "Send a notification to the current authorized user. " +

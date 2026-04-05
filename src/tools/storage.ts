@@ -65,7 +65,7 @@ function formatError(error: {
 export function registerStorageTools(server: McpServer): void {
   // Get Storage Value
   server.registerTool(
-    "quire.getStorageValue",
+    "quire_getStorageValue",
     {
       description: "Get a stored value by name from Quire's key-value storage.",
       inputSchema: z.object({
@@ -107,7 +107,7 @@ export function registerStorageTools(server: McpServer): void {
 
   // List Storage Entries
   server.registerTool(
-    "quire.listStorageEntries",
+    "quire_listStorageEntries",
     {
       description:
         "List all storage entries with a given prefix. " +
@@ -153,7 +153,7 @@ export function registerStorageTools(server: McpServer): void {
 
   // Put Storage Value
   server.registerTool(
-    "quire.putStorageValue",
+    "quire_putStorageValue",
     {
       description:
         "Store a value in Quire's key-value storage. " +
@@ -200,7 +200,7 @@ export function registerStorageTools(server: McpServer): void {
 
   // Delete Storage Value
   server.registerTool(
-    "quire.deleteStorageValue",
+    "quire_deleteStorageValue",
     {
       description:
         "Delete a stored value by name. This action cannot be undone.",

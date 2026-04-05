@@ -60,15 +60,15 @@ describe("Comment Tools", () => {
 
   it("should register all comment tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(6);
-    expect(registeredTools.has("quire.listTaskComments")).toBe(true);
-    expect(registeredTools.has("quire.addTaskComment")).toBe(true);
-    expect(registeredTools.has("quire.updateComment")).toBe(true);
-    expect(registeredTools.has("quire.deleteComment")).toBe(true);
-    expect(registeredTools.has("quire.listChatComments")).toBe(true);
-    expect(registeredTools.has("quire.addChatComment")).toBe(true);
+    expect(registeredTools.has("quire_listTaskComments")).toBe(true);
+    expect(registeredTools.has("quire_addTaskComment")).toBe(true);
+    expect(registeredTools.has("quire_updateComment")).toBe(true);
+    expect(registeredTools.has("quire_deleteComment")).toBe(true);
+    expect(registeredTools.has("quire_listChatComments")).toBe(true);
+    expect(registeredTools.has("quire_addChatComment")).toBe(true);
   });
 
-  describe("quire.listTaskComments", () => {
+  describe("quire_listTaskComments", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -76,7 +76,7 @@ describe("Comment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listTaskComments");
+      const tool = registeredTools.get("quire_listTaskComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -108,7 +108,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listTaskComments");
+      const tool = registeredTools.get("quire_listTaskComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -137,7 +137,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listTaskComments");
+      const tool = registeredTools.get("quire_listTaskComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -159,7 +159,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listTaskComments");
+      const tool = registeredTools.get("quire_listTaskComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -177,7 +177,7 @@ describe("Comment Tools", () => {
     });
   });
 
-  describe("quire.addTaskComment", () => {
+  describe("quire_addTaskComment", () => {
     it("should add comment by task OID", async () => {
       const mockComment = { oid: "comment1", description: "New comment" };
       const mockClient = createMockClient({
@@ -192,7 +192,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addTaskComment");
+      const tool = registeredTools.get("quire_addTaskComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -222,7 +222,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addTaskComment");
+      const tool = registeredTools.get("quire_addTaskComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -245,7 +245,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addTaskComment");
+      const tool = registeredTools.get("quire_addTaskComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -269,7 +269,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addTaskComment");
+      const tool = registeredTools.get("quire_addTaskComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -285,7 +285,7 @@ describe("Comment Tools", () => {
     });
   });
 
-  describe("quire.updateComment", () => {
+  describe("quire_updateComment", () => {
     it("should update comment", async () => {
       const mockComment = { oid: "CommentOid", description: "Updated" };
       const mockClient = createMockClient({
@@ -300,7 +300,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateComment");
+      const tool = registeredTools.get("quire_updateComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -327,7 +327,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateComment");
+      const tool = registeredTools.get("quire_updateComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -343,7 +343,7 @@ describe("Comment Tools", () => {
     });
   });
 
-  describe("quire.deleteComment", () => {
+  describe("quire_deleteComment", () => {
     it("should delete comment", async () => {
       const mockClient = createMockClient({
         deleteComment: vi.fn().mockResolvedValueOnce({
@@ -357,7 +357,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteComment");
+      const tool = registeredTools.get("quire_deleteComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -374,7 +374,7 @@ describe("Comment Tools", () => {
     });
   });
 
-  describe("quire.listChatComments", () => {
+  describe("quire_listChatComments", () => {
     it("should list chat comments by chat OID", async () => {
       const mockComments = [{ oid: "comment1", description: "Chat message" }];
       const mockClient = createMockClient({
@@ -389,7 +389,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listChatComments");
+      const tool = registeredTools.get("quire_listChatComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -417,7 +417,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listChatComments");
+      const tool = registeredTools.get("quire_listChatComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -439,7 +439,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listChatComments");
+      const tool = registeredTools.get("quire_listChatComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -454,7 +454,7 @@ describe("Comment Tools", () => {
     });
   });
 
-  describe("quire.addChatComment", () => {
+  describe("quire_addChatComment", () => {
     it("should add chat comment by chat OID", async () => {
       const mockComment = { oid: "comment1", description: "Chat message" };
       const mockClient = createMockClient({
@@ -469,7 +469,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addChatComment");
+      const tool = registeredTools.get("quire_addChatComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -499,7 +499,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addChatComment");
+      const tool = registeredTools.get("quire_addChatComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -522,7 +522,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addChatComment");
+      const tool = registeredTools.get("quire_addChatComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -545,7 +545,7 @@ describe("Comment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.addTaskComment");
+      const tool = registeredTools.get("quire_addTaskComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -564,7 +564,7 @@ describe("Comment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.updateComment");
+      const tool = registeredTools.get("quire_updateComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -583,7 +583,7 @@ describe("Comment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.deleteComment");
+      const tool = registeredTools.get("quire_deleteComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -602,7 +602,7 @@ describe("Comment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listChatComments");
+      const tool = registeredTools.get("quire_listChatComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -621,7 +621,7 @@ describe("Comment Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.addChatComment");
+      const tool = registeredTools.get("quire_addChatComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -645,7 +645,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listTaskComments");
+      const tool = registeredTools.get("quire_listTaskComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -666,7 +666,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteComment");
+      const tool = registeredTools.get("quire_deleteComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -689,7 +689,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listChatComments");
+      const tool = registeredTools.get("quire_listChatComments");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -710,7 +710,7 @@ describe("Comment Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.addChatComment");
+      const tool = registeredTools.get("quire_addChatComment");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

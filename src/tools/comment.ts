@@ -22,7 +22,7 @@ import {
 export function registerCommentTools(server: McpServer): void {
   // List Task Comments
   server.registerTool(
-    "quire.listTaskComments",
+    "quire_listTaskComments",
     {
       description:
         "List all comments on a task. Can be accessed by task OID " +
@@ -77,7 +77,7 @@ export function registerCommentTools(server: McpServer): void {
 
   // Add Task Comment
   server.registerTool(
-    "quire.addTaskComment",
+    "quire_addTaskComment",
     {
       description:
         "Add a comment to a task. Can be accessed by task OID " +
@@ -153,7 +153,7 @@ export function registerCommentTools(server: McpServer): void {
 
   // Update Comment
   server.registerTool(
-    "quire.updateComment",
+    "quire_updateComment",
     {
       description: "Update an existing comment's text or pin status.",
       inputSchema: z.object({
@@ -190,7 +190,7 @@ export function registerCommentTools(server: McpServer): void {
 
   // Delete Comment
   server.registerTool(
-    "quire.deleteComment",
+    "quire_deleteComment",
     {
       description: "Delete a comment. This action cannot be undone.",
       inputSchema: z.object({
@@ -219,7 +219,7 @@ export function registerCommentTools(server: McpServer): void {
 
   // List Chat Comments
   server.registerTool(
-    "quire.listChatComments",
+    "quire_listChatComments",
     {
       description:
         "List all comments on a chat channel by OID, or by project ID and chat ID.",
@@ -271,7 +271,7 @@ export function registerCommentTools(server: McpServer): void {
 
   // Add Chat Comment
   server.registerTool(
-    "quire.addChatComment",
+    "quire_addChatComment",
     {
       description:
         "Add a comment to a chat channel by OID, or by project ID and chat ID.",

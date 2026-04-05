@@ -20,7 +20,7 @@ import {
 export function registerOrganizationTools(server: McpServer): void {
   // List Organizations
   server.registerTool(
-    "quire.listOrganizations",
+    "quire_listOrganizations",
     {
       description:
         "List all organizations accessible to the current user. " +
@@ -47,7 +47,7 @@ export function registerOrganizationTools(server: McpServer): void {
 
   // Get Organization
   server.registerTool(
-    "quire.getOrganization",
+    "quire_getOrganization",
     {
       description:
         "Get detailed information about a specific organization by its ID or OID. " +
@@ -80,7 +80,7 @@ export function registerOrganizationTools(server: McpServer): void {
 
   // Update Organization
   server.registerTool(
-    "quire.updateOrganization",
+    "quire_updateOrganization",
     {
       description:
         "Update an organization's followers. You can set the complete list of followers, " +

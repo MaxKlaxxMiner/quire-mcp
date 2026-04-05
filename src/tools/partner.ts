@@ -65,7 +65,7 @@ function formatError(error: {
 export function registerPartnerTools(server: McpServer): void {
   // Get Partner
   server.registerTool(
-    "quire.getPartner",
+    "quire_getPartner",
     {
       description: "Get details of an external team (partner) by OID.",
       inputSchema: z.object({
@@ -107,7 +107,7 @@ export function registerPartnerTools(server: McpServer): void {
 
   // List Partners
   server.registerTool(
-    "quire.listPartners",
+    "quire_listPartners",
     {
       description: "List all external teams (partners) in a project.",
       inputSchema: z.object({

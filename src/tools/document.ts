@@ -22,7 +22,7 @@ import {
 export function registerDocumentTools(server: McpServer): void {
   // Create Document
   server.registerTool(
-    "quire.createDocument",
+    "quire_createDocument",
     {
       description: "Create a new document in an organization or project.",
       inputSchema: z.object({
@@ -115,7 +115,7 @@ export function registerDocumentTools(server: McpServer): void {
 
   // Get Document
   server.registerTool(
-    "quire.getDocument",
+    "quire_getDocument",
     {
       description:
         "Get a document by OID, or by owner type/ID and document ID.",
@@ -175,7 +175,7 @@ export function registerDocumentTools(server: McpServer): void {
 
   // List Documents
   server.registerTool(
-    "quire.listDocuments",
+    "quire_listDocuments",
     {
       description:
         "List all documents in an organization, project, folder, or smart-folder.",
@@ -213,7 +213,7 @@ export function registerDocumentTools(server: McpServer): void {
 
   // Update Document
   server.registerTool(
-    "quire.updateDocument",
+    "quire_updateDocument",
     {
       description:
         "Update a document's properties by OID, or by owner type/ID and document ID.",
@@ -331,7 +331,7 @@ export function registerDocumentTools(server: McpServer): void {
 
   // Delete Document
   server.registerTool(
-    "quire.deleteDocument",
+    "quire_deleteDocument",
     {
       description:
         "Delete a document by OID, or by owner type/ID and document ID. This action cannot be undone.",

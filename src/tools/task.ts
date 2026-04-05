@@ -22,7 +22,7 @@ import {
 export function registerTaskTools(server: McpServer): void {
   // List Tasks
   server.registerTool(
-    "quire.listTasks",
+    "quire_listTasks",
     {
       description:
         "List tasks in a project. Returns root-level tasks by default, " +
@@ -63,7 +63,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Get Task
   server.registerTool(
-    "quire.getTask",
+    "quire_getTask",
     {
       description:
         "Get detailed information about a specific task. " +
@@ -118,7 +118,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Create Task
   server.registerTool(
-    "quire.createTask",
+    "quire_createTask",
     {
       description:
         "Create a new task in a project or as a subtask of an existing task. " +
@@ -204,7 +204,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Update Task
   server.registerTool(
-    "quire.updateTask",
+    "quire_updateTask",
     {
       description:
         "Update an existing task. Can be identified by project ID + task ID, " +
@@ -340,7 +340,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Delete Task
   server.registerTool(
-    "quire.deleteTask",
+    "quire_deleteTask",
     {
       description:
         "Delete a task and all its subtasks. This action cannot be undone.",
@@ -368,7 +368,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Search Tasks
   server.registerTool(
-    "quire.searchTasks",
+    "quire_searchTasks",
     {
       description:
         "Search for tasks in a project by keyword and optional filters. " +
@@ -433,7 +433,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Create Task After
   server.registerTool(
-    "quire.createTaskAfter",
+    "quire_createTaskAfter",
     {
       description:
         "Create a new task immediately after a specified task. " +
@@ -513,7 +513,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Create Task Before
   server.registerTool(
-    "quire.createTaskBefore",
+    "quire_createTaskBefore",
     {
       description:
         "Create a new task immediately before a specified task. " +
@@ -593,7 +593,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Search Folder Tasks
   server.registerTool(
-    "quire.searchFolderTasks",
+    "quire_searchFolderTasks",
     {
       description:
         "Search for tasks within a specific folder by keyword and optional filters.",
@@ -657,7 +657,7 @@ export function registerTaskTools(server: McpServer): void {
 
   // Search Organization Tasks
   server.registerTool(
-    "quire.searchOrganizationTasks",
+    "quire_searchOrganizationTasks",
     {
       description:
         "Search for tasks across an entire organization by keyword and optional filters. " +

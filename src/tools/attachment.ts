@@ -65,7 +65,7 @@ function formatError(error: {
 export function registerAttachmentTools(server: McpServer): void {
   // Upload Task Attachment
   server.registerTool(
-    "quire.uploadTaskAttachment",
+    "quire_uploadTaskAttachment",
     {
       description:
         "Upload a file attachment to a task. " +
@@ -124,7 +124,7 @@ export function registerAttachmentTools(server: McpServer): void {
 
   // Upload Comment Attachment
   server.registerTool(
-    "quire.uploadCommentAttachment",
+    "quire_uploadCommentAttachment",
     {
       description:
         "Upload a file attachment to a comment. " +

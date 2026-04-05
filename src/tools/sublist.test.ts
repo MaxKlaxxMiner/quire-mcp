@@ -60,14 +60,14 @@ describe("Sublist Tools", () => {
 
   it("should register all sublist tools", () => {
     expect(server.registerTool).toHaveBeenCalledTimes(5);
-    expect(registeredTools.has("quire.createSublist")).toBe(true);
-    expect(registeredTools.has("quire.getSublist")).toBe(true);
-    expect(registeredTools.has("quire.listSublists")).toBe(true);
-    expect(registeredTools.has("quire.updateSublist")).toBe(true);
-    expect(registeredTools.has("quire.deleteSublist")).toBe(true);
+    expect(registeredTools.has("quire_createSublist")).toBe(true);
+    expect(registeredTools.has("quire_getSublist")).toBe(true);
+    expect(registeredTools.has("quire_listSublists")).toBe(true);
+    expect(registeredTools.has("quire_updateSublist")).toBe(true);
+    expect(registeredTools.has("quire_deleteSublist")).toBe(true);
   });
 
-  describe("quire.createSublist", () => {
+  describe("quire_createSublist", () => {
     it("should return error on authentication failure", async () => {
       const mockResult: QuireClientResult = {
         success: false,
@@ -75,7 +75,7 @@ describe("Sublist Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.createSublist");
+      const tool = registeredTools.get("quire_createSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -108,7 +108,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createSublist");
+      const tool = registeredTools.get("quire_createSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -140,7 +140,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createSublist");
+      const tool = registeredTools.get("quire_createSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -161,7 +161,7 @@ describe("Sublist Tools", () => {
     });
   });
 
-  describe("quire.getSublist", () => {
+  describe("quire_getSublist", () => {
     it("should get sublist by OID", async () => {
       const mockSublist = {
         oid: "SublistOid",
@@ -180,7 +180,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getSublist");
+      const tool = registeredTools.get("quire_getSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -208,7 +208,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getSublist");
+      const tool = registeredTools.get("quire_getSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -231,7 +231,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getSublist");
+      const tool = registeredTools.get("quire_getSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -246,7 +246,7 @@ describe("Sublist Tools", () => {
     });
   });
 
-  describe("quire.listSublists", () => {
+  describe("quire_listSublists", () => {
     it("should list sublists for project", async () => {
       const mockSublists = [
         { oid: "sublist1", id: "sprint-1", name: "Sprint 1" },
@@ -264,7 +264,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listSublists");
+      const tool = registeredTools.get("quire_listSublists");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -284,7 +284,7 @@ describe("Sublist Tools", () => {
     });
   });
 
-  describe("quire.updateSublist", () => {
+  describe("quire_updateSublist", () => {
     it("should update sublist by OID", async () => {
       const mockClient = createMockClient({
         updateSublist: vi.fn().mockResolvedValueOnce({
@@ -298,7 +298,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateSublist");
+      const tool = registeredTools.get("quire_updateSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -324,7 +324,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateSublist");
+      const tool = registeredTools.get("quire_updateSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -353,7 +353,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateSublist");
+      const tool = registeredTools.get("quire_updateSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -368,7 +368,7 @@ describe("Sublist Tools", () => {
     });
   });
 
-  describe("quire.deleteSublist", () => {
+  describe("quire_deleteSublist", () => {
     it("should delete sublist by OID", async () => {
       const mockClient = createMockClient({
         deleteSublist: vi.fn().mockResolvedValueOnce({
@@ -382,7 +382,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteSublist");
+      const tool = registeredTools.get("quire_deleteSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -411,7 +411,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteSublist");
+      const tool = registeredTools.get("quire_deleteSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       await tool.handler(
@@ -434,7 +434,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteSublist");
+      const tool = registeredTools.get("quire_deleteSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -457,7 +457,7 @@ describe("Sublist Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.getSublist");
+      const tool = registeredTools.get("quire_getSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -476,7 +476,7 @@ describe("Sublist Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.listSublists");
+      const tool = registeredTools.get("quire_listSublists");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -495,7 +495,7 @@ describe("Sublist Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.updateSublist");
+      const tool = registeredTools.get("quire_updateSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -514,7 +514,7 @@ describe("Sublist Tools", () => {
       };
       vi.mocked(getQuireClient).mockResolvedValueOnce(mockResult);
 
-      const tool = registeredTools.get("quire.deleteSublist");
+      const tool = registeredTools.get("quire_deleteSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -538,7 +538,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.createSublist");
+      const tool = registeredTools.get("quire_createSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -559,7 +559,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.getSublist");
+      const tool = registeredTools.get("quire_getSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -580,7 +580,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.listSublists");
+      const tool = registeredTools.get("quire_listSublists");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -601,7 +601,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.updateSublist");
+      const tool = registeredTools.get("quire_updateSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(
@@ -622,7 +622,7 @@ describe("Sublist Tools", () => {
         client: mockClient,
       });
 
-      const tool = registeredTools.get("quire.deleteSublist");
+      const tool = registeredTools.get("quire_deleteSublist");
       expect(tool).toBeDefined();
       if (!tool) return;
       const result = (await tool.handler(

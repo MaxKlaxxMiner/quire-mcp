@@ -22,7 +22,7 @@ import {
 export function registerChatTools(server: McpServer): void {
   // Create Chat
   server.registerTool(
-    "quire.createChat",
+    "quire_createChat",
     {
       description: "Create a new chat channel in a project.",
       inputSchema: z.object({
@@ -116,7 +116,7 @@ export function registerChatTools(server: McpServer): void {
 
   // Get Chat
   server.registerTool(
-    "quire.getChat",
+    "quire_getChat",
     {
       description:
         "Get a chat channel by OID, or by owner type/ID and chat ID.",
@@ -171,7 +171,7 @@ export function registerChatTools(server: McpServer): void {
 
   // List Chats
   server.registerTool(
-    "quire.listChats",
+    "quire_listChats",
     {
       description: "List all chat channels in a project.",
       inputSchema: z.object({
@@ -206,7 +206,7 @@ export function registerChatTools(server: McpServer): void {
 
   // Update Chat
   server.registerTool(
-    "quire.updateChat",
+    "quire_updateChat",
     {
       description:
         "Update a chat channel's properties by OID, or by owner type/ID and chat ID.",
@@ -323,7 +323,7 @@ export function registerChatTools(server: McpServer): void {
 
   // Delete Chat
   server.registerTool(
-    "quire.deleteChat",
+    "quire_deleteChat",
     {
       description:
         "Delete a chat channel by OID, or by owner type/ID and chat ID. This action cannot be undone.",
