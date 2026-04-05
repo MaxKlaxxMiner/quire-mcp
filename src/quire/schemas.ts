@@ -168,7 +168,7 @@ export const QuireTaskSchema = z.object({
       oid: z.string(),
       id: z.number(),
     })
-    .optional(),
+    .nullish(),
   assignees: z.array(QuireSimpleUserSchema).optional(),
   createdAt: z.string().optional(),
   createdBy: QuireSimpleUserSchema.optional(),
@@ -424,15 +424,15 @@ export const QuireAttachmentSchema = z.object({
 // ---------------------------------------------------------------------------
 
 export const DeleteOidResponseSchema = z.object({
-  oid: z.string(),
+  oid: z.string().optional(),
 });
 
 export const DeleteValueResponseSchema = z.object({
-  value: z.number(),
+  value: z.number().optional(),
 });
 
 export const DeleteNameResponseSchema = z.object({
-  name: z.string(),
+  name: z.string().optional(),
 });
 
 export const SuccessResponseSchema = z.object({
