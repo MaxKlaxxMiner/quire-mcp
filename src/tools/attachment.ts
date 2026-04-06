@@ -69,7 +69,8 @@ export function registerAttachmentTools(server: McpServer): void {
     {
       description:
         "Upload a file attachment to a task. " +
-        "The content should be provided as a string (e.g., text content or base64-encoded binary).",
+        "The content should be provided as a string (e.g., text content or base64-encoded binary). " +
+        "For binary files (images, PDFs, etc.), provide base64-encoded content and set base64 to true.",
       inputSchema: z.object({
         taskOid: z
           .string()
@@ -77,7 +78,7 @@ export function registerAttachmentTools(server: McpServer): void {
         filename: z
           .string()
           .describe("The filename for the attachment (e.g., 'document.txt')"),
-        content: z.string().describe("The file content as a string"),
+        content: z.string().describe("The file content as a string, or base64-encoded string for binary files"),
         mimeType: z
           .string()
           .optional()
@@ -85,9 +86,16 @@ export function registerAttachmentTools(server: McpServer): void {
             "The MIME type of the file (e.g., 'text/plain', 'application/pdf'). " +
               "Defaults to 'application/octet-stream'"
           ),
+        base64: z
+          .boolean()
+          .optional()
+          .describe(
+            "Set to true if content is base64-encoded (for binary files like images, PDFs). " +
+              "Defaults to false"
+          ),
       }),
     },
-    async ({ taskOid, filename, content, mimeType }, extra) => {
+    async ({ taskOid, filename, content, mimeType, base64 }, extra) => {
       const clientResult = await getQuireClient(extra);
       if (!clientResult.success) {
         return {
@@ -105,7 +113,8 @@ export function registerAttachmentTools(server: McpServer): void {
         taskOid,
         filename,
         content,
-        mimeType
+        mimeType,
+        base64
       );
       if (!result.success) {
         return formatError(result.error);
@@ -128,7 +137,8 @@ export function registerAttachmentTools(server: McpServer): void {
     {
       description:
         "Upload a file attachment to a comment. " +
-        "The content should be provided as a string (e.g., text content or base64-encoded binary).",
+        "The content should be provided as a string (e.g., text content or base64-encoded binary). " +
+        "For binary files (images, PDFs, etc.), provide base64-encoded content and set base64 to true.",
       inputSchema: z.object({
         commentOid: z
           .string()
@@ -138,7 +148,7 @@ export function registerAttachmentTools(server: McpServer): void {
         filename: z
           .string()
           .describe("The filename for the attachment (e.g., 'document.txt')"),
-        content: z.string().describe("The file content as a string"),
+        content: z.string().describe("The file content as a string, or base64-encoded string for binary files"),
         mimeType: z
           .string()
           .optional()
@@ -146,9 +156,16 @@ export function registerAttachmentTools(server: McpServer): void {
             "The MIME type of the file (e.g., 'text/plain', 'application/pdf'). " +
               "Defaults to 'application/octet-stream'"
           ),
+        base64: z
+          .boolean()
+          .optional()
+          .describe(
+            "Set to true if content is base64-encoded (for binary files like images, PDFs). " +
+              "Defaults to false"
+          ),
       }),
     },
-    async ({ commentOid, filename, content, mimeType }, extra) => {
+    async ({ commentOid, filename, content, mimeType, base64 }, extra) => {
       const clientResult = await getQuireClient(extra);
       if (!clientResult.success) {
         return {
@@ -166,7 +183,8 @@ export function registerAttachmentTools(server: McpServer): void {
         commentOid,
         filename,
         content,
-        mimeType
+        mimeType,
+        base64
       );
       if (!result.success) {
         return formatError(result.error);

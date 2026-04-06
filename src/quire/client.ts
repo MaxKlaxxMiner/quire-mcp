@@ -1748,9 +1748,11 @@ export class QuireClient {
     taskOid: string,
     filename: string,
     content: string,
-    mimeType = "application/octet-stream"
+    mimeType = "application/octet-stream",
+    isBase64 = false
   ): Promise<QuireResult<QuireAttachment>> {
     const url = `${QUIRE_API_BASE_URL}/task/attach/${taskOid}/${encodeURIComponent(filename)}`;
+    const body = isBase64 ? Buffer.from(content, "base64") : content;
 
     try {
       const response = await fetch(url, {
@@ -1759,7 +1761,7 @@ export class QuireClient {
           Authorization: `Bearer ${this.token}`,
           "Content-Type": mimeType,
         },
-        body: content,
+        body,
         signal: createTimeoutSignal(this.timeoutMs),
       });
 
@@ -1837,9 +1839,11 @@ export class QuireClient {
     commentOid: string,
     filename: string,
     content: string,
-    mimeType = "application/octet-stream"
+    mimeType = "application/octet-stream",
+    isBase64 = false
   ): Promise<QuireResult<QuireAttachment>> {
     const url = `${QUIRE_API_BASE_URL}/comment/attach/${commentOid}/${encodeURIComponent(filename)}`;
+    const body = isBase64 ? Buffer.from(content, "base64") : content;
 
     try {
       const response = await fetch(url, {
@@ -1848,7 +1852,7 @@ export class QuireClient {
           Authorization: `Bearer ${this.token}`,
           "Content-Type": mimeType,
         },
-        body: content,
+        body,
         signal: createTimeoutSignal(this.timeoutMs),
       });
 
