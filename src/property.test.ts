@@ -164,10 +164,24 @@ describe("isOid (property-based)", () => {
     );
   });
 
-  it("strings with underscores are never OIDs", () => {
+  it("uppercase with digits are OIDs (even with underscores)", () => {
     fc.assert(
-      fc.property(fc.stringMatching(/^[a-zA-Z0-9]*_[a-zA-Z0-9_]*$/), (str) => {
-        fc.pre(!str.includes(".")); // Exclude strings with dots
+      fc.property(fc.stringMatching(/^[a-zA-Z0-9_]+$/), (str) => {
+        fc.pre(str.length > 0);
+        fc.pre(/[A-Z]/.test(str)); // Has at least one uppercase
+        fc.pre(/\d/.test(str)); // Has at least one digit
+        fc.pre(!str.includes(".")); // No dots
+        expect(isOid(str)).toBe(true);
+      })
+    );
+  });
+
+  it("uppercase without digits are not OIDs (e.g., user IDs)", () => {
+    fc.assert(
+      fc.property(fc.stringMatching(/^[a-zA-Z_]+$/), (str) => {
+        fc.pre(str.length > 0);
+        fc.pre(/[A-Z]/.test(str)); // Has at least one uppercase
+        fc.pre(!str.includes(".")); // No dots
         expect(isOid(str)).toBe(false);
       })
     );
@@ -179,18 +193,6 @@ describe("isOid (property-based)", () => {
         fc.pre(str.length > 0);
         fc.pre(!str.includes(".")); // No dots
         expect(isOid(str)).toBe(false);
-      })
-    );
-  });
-
-  it("mixed case without dots or underscores are OIDs", () => {
-    fc.assert(
-      fc.property(fc.stringMatching(/^[a-zA-Z0-9]+$/), (str) => {
-        fc.pre(str.length > 0);
-        fc.pre(/[A-Z]/.test(str)); // Has at least one uppercase
-        fc.pre(!str.includes(".")); // No dots
-        fc.pre(!str.includes("_")); // No underscores
-        expect(isOid(str)).toBe(true);
       })
     );
   });

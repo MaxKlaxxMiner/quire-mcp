@@ -89,14 +89,15 @@ export function isOid(value: string): boolean {
   // Contains a dot → definitely OID (e.g., "GZ5993VFJqJsPN.g9SpFhYrU")
   if (value.includes(".")) return true;
 
-  // Contains underscore → likely a user ID (e.g., "Jacob_Hartmann")
-  if (value.includes("_")) return false;
-
   // All lowercase (may include hyphens) → ID/slug (e.g., "my-project")
   if (!/[A-Z]/.test(value)) return false;
 
-  // Has uppercase and no underscores or dots → OID (e.g., "9VFQ8YT7yQibEVfRrAy1lUS1")
-  return true;
+  // Has uppercase AND digits → OID (e.g., "0XxFfpV868Xe4AMchVD8b_48")
+  // OIDs are random base64-like strings that always contain digits
+  if (/\d/.test(value)) return true;
+
+  // Has uppercase but no digits → likely a user ID (e.g., "Jacob_Hartmann")
+  return false;
 }
 
 interface ClientOptions {
@@ -201,7 +202,19 @@ export class QuireClient {
       const response = await fetch(url, fetchOptions);
 
       if (response.ok) {
-        const rawData: unknown = await response.json();
+        // Read body as text first to handle empty responses (e.g., 204 No Content from DELETE)
+        const text = await response.text();
+        let rawData: unknown;
+        if (text.trim()) {
+          try {
+            rawData = JSON.parse(text);
+          } catch {
+            // Non-JSON success response (e.g., plain text from DELETE) — treat as empty
+            rawData = {};
+          }
+        } else {
+          rawData = {};
+        }
 
         // Validate response with Zod schema if provided
         if (options?.schema) {
@@ -253,9 +266,12 @@ export class QuireClient {
       // Parse error body if available
       let errorMessage = `HTTP ${response.status}`;
       try {
-        const errorBody = (await response.json()) as { message?: string };
-        if (errorBody.message) {
-          errorMessage = errorBody.message;
+        const errorText = await response.text();
+        if (errorText.trim()) {
+          const errorBody = JSON.parse(errorText) as { message?: string };
+          if (errorBody.message) {
+            errorMessage = errorBody.message;
+          }
         }
       } catch {
         // Ignore JSON parse errors for error body
@@ -560,19 +576,12 @@ export class QuireClient {
     projectIdOrOid: string,
     params: CreateTaskParams
   ): Promise<QuireResult<QuireTask>> {
-    // Filter out undefined values for exactOptionalPropertyTypes compatibility
-    const body: Record<string, unknown> = {};
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined) {
-        body[key] = value;
-      }
-    }
     const endpoint = isOid(projectIdOrOid)
       ? `/task/${projectIdOrOid}`
       : `/task/id/${projectIdOrOid}`;
     return this.request<QuireTask>(endpoint, {
       method: "POST",
-      body,
+      body: params as unknown as Record<string, unknown>,
       schema: QuireTaskSchema,
     });
   }
@@ -663,15 +672,9 @@ export class QuireClient {
     taskOid: string,
     params: CreateTaskParams
   ): Promise<QuireResult<QuireTask>> {
-    const body: Record<string, unknown> = {};
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined) {
-        body[key] = value;
-      }
-    }
     return this.request<QuireTask>(`/task/after/${taskOid}`, {
       method: "POST",
-      body,
+      body: params as unknown as Record<string, unknown>,
       schema: QuireTaskSchema,
     });
   }
@@ -685,15 +688,9 @@ export class QuireClient {
     taskOid: string,
     params: CreateTaskParams
   ): Promise<QuireResult<QuireTask>> {
-    const body: Record<string, unknown> = {};
-    for (const [key, value] of Object.entries(params)) {
-      if (value !== undefined) {
-        body[key] = value;
-      }
-    }
     return this.request<QuireTask>(`/task/before/${taskOid}`, {
       method: "POST",
-      body,
+      body: params as unknown as Record<string, unknown>,
       schema: QuireTaskSchema,
     });
   }
